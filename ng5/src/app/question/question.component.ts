@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-
+  questionText = 'what is Java?';
+  AnswerText = '';
   constructor() { }
 
   ngOnInit() {
   }
 
+  submit() {
+    console.log('button clicked');
+  }
 }

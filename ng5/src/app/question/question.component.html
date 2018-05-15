@@ -1,15 +1,16 @@
-<span>
-  <br/>
-</span>
-<div class="divpading">
-  <form action="">
-      Question:<br>
-      <textarea name="question" cols="40" rows="5"></textarea>
-    <br>
-    Answer:
-    <br>
-    <textarea name="answer" cols="40" rows="5"></textarea>
-    <br/><br/>
-    <input type="submit" name="submit">
+<div class="container col-4 p-2 m-4">
+  <form>
+    <div class="form-group">
+      <label for="question">Question:</label>
+      <textarea class="form-control" id="question" rows="3" [(ngModel)]="questionText" name="question"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="answer">Answer</label>
+      <textarea class="form-control" id="answer" rows="3" [(ngModel)]="AnswerText" name="answer"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary mb-2" (click)='submit()'>
   </form>
+</div>
+<div class="container col-4 p-2 m-4">
+  <p>{{questionText}}</p>
 </div>
