@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
-const http = require('https');
-
+const https = require('https');
+const fs = require('fs');
 const router = express.Router();
 
 var Storage = multer.diskStorage({
@@ -12,30 +12,14 @@ var Storage = multer.diskStorage({
         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
     }
 });
-var upload = multer({ storage: Storage }).array("imgUploader", 3); //Field name and max count
+var upload = multer({ storage: Storage }).array("imgUploader", 3); 
+
+//Field name and max count
 
 router.get('/readme', (req, res, next) => {
-    return http.get({
-        host: 'https://librivox.org/api/feed/audiobooks',
-        path: '/?&format=json'
-    }, function(response) {
-        // Continuously update stream with data
-        var body = '';
-        response.on('data', function(d) {
-            body += d;
-        });
-        response.on('end', function() {
+    let data = makeHttpRequest(); 
 
-            // Data reception is done, do whatever with it!
-            var parsed = JSON.parse(body);
-            res.send(parsed.JSON);
-            // callback({
-            //     email: parsed.email,
-            //     password: parsed.pass
-            // });
-        });
-    });
-
+    return res.send(JSON.parse(data));
 });
 
 router.post('/upload', (req, res, next) => {
@@ -47,5 +31,26 @@ router.post('/upload', (req, res, next) => {
         return res.end("File uploaded sucessfully!.");
     });
 });
+
+function makeHttpRequest(){
+    let data = '';
+    https.get('https://librivox.org/api/feed/audiobooks/?&format=json', (resp) => {
+   
+
+    // A chunk of data has been recieved.
+    resp.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    // The whole response has been received. Print out the result.
+    resp.on('end', () => {
+        //console.log(data);
+    });
+
+}).on("error", (err) => {
+    console.log("Error: " + err.message);
+});
+return data;
+}
 
 module.exports = router;
