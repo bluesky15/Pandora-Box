@@ -1,4 +1,5 @@
 import angular from 'angular';
+import './route.min.js';
 
 angular.module("myApp", [])
     .controller("myController", function ($scope, $http) {
@@ -8,3 +9,4 @@ angular.module("myApp", [])
         $scope.names = names;
 
     });
+route.$http;

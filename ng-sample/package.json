@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@angular/cli": "^6.0.8",
+    "@uirouter/angularjs": "^1.0.18",
     "angular": "^1.7.2"
   },
   "devDependencies": {
