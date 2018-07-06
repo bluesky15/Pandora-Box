@@ -13,7 +13,7 @@ import './route.min.js';
 var app = angular.module("myApp", ['ngRoute']);
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
-        template: 'welcome user!'
+        templateUrl: './home.html'
     }).when('/another', {
         template: 'welcome user, again!'
     }).otherwise({
