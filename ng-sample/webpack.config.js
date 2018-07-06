@@ -2,10 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/app.module.js',
     output:{
         path: path.join(__dirname, './dist'),
-        filename: 'index_bundle.js',
+        filename: 'main.bundle.js',
     },
     module:{
         rules:[
@@ -23,9 +23,9 @@ module.exports = {
             template:'./src/index.html'
         }),
         new HtmlWebpackPlugin({
-            filename: 'home.html',
-            template: 'src/home.html',
-            chunks: ['exampleEntry']
+            filename: './templates/blog-list.html',
+            template: 'src/templates/blog-list.html',
+            chunks: ['templates']
           })
     ]
 }

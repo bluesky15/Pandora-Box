@@ -1,5 +1,7 @@
-import angular from 'angular';
-import './route.min.js';
+import './blog-list/blog-list.component';
+
+//import angular from 'angular';
+//import './route.min.js';
 
 // angular.module("myApp", [])
 //     .controller("myController", function ($scope, $http) {
@@ -10,13 +12,13 @@ import './route.min.js';
 
 //     });
 // route.$http;
-var app = angular.module("myApp", ['ngRoute']);
-app.config(function ($routeProvider) {
-    $routeProvider.when('/', {
-        templateUrl: './home.html'
-    }).when('/another', {
-        template: 'welcome user, again!'
-    }).otherwise({
-        redirectTo: '/'
-    });
-});
+// var app = angular.module("myApp", ['ngRoute']);
+// app.config(function ($routeProvider) {
+//     $routeProvider.when('/', {
+//         templateUrl: './home.html'
+//     }).when('/another', {
+//         template: 'welcome user, again!'
+//     }).otherwise({
+//         redirectTo: '/'
+//     });
+// });
