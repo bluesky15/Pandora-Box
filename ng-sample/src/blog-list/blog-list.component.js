@@ -6,7 +6,7 @@ angular.module('blogList')
         //                 <h1>{{title}}</h1>
         //                 <button ng-click="someClickListener()" >ClickMe</button>
         //             </div>`,
-        templateUrl: '../templates/blog-list.html',
+        template: require('./blog-list.html'),
         controller: function ($scope) {
             $scope.title = 'Hi there!';
             $scope.clicks = 0;
