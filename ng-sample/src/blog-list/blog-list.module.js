@@ -1,1 +1,0 @@
-export var module = angular.module('blogList',[]);
