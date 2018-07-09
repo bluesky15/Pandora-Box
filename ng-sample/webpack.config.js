@@ -3,7 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/main.js',
+    entry: ['webpack-hot-middleware/client?reload=true',
+        './src/main.js'
+    ],
     output: {
         path: path.join(__dirname, './dist'),
         filename: 'main.bundle.js',
@@ -25,6 +27,10 @@ module.exports = {
                     }
                 }],
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
             // {
             //     test: /\.html$/,
             //     use: [{
@@ -41,7 +47,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename:'index.html',
+            filename: 'index.html',
             template: './src/index.html'
         }),
         // new HtmlWebpackPlugin({

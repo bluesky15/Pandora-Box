@@ -1,6 +1,6 @@
 import angular from 'angular';
 import './navbar/navigation.component';
-import './js/route.min';  // angular ui routing
+import './js/route';  // angular ui routing
 import './charts/charts.component';
 
 angular.module('app', ['navBar', 'ngRoute','charts'])
