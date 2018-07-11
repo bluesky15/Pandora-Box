@@ -6,9 +6,14 @@ import './about/about.component';
 import '@uirouter/angularjs';
 import './charts/charts.component';
 
-
-angular.module('app', ['navBar', 'ui.router', 'charts','homePage','aboutPage'])
-    .config(function ($stateProvider,$urlRouterProvider,$locationProvider) {
+var modules = ['navBar',
+    'ui.router',
+    'charts',
+    'homePage',
+    'aboutPage'
+];
+angular.module('app', modules)
+    .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state('home', {
@@ -25,7 +30,7 @@ angular.module('app', ['navBar', 'ui.router', 'charts','homePage','aboutPage'])
                 url: '/page1',
                 template: require('./charts/charts.component.html')
             });
-           // $locationProvider.html5Mode(true);
+        // $locationProvider.html5Mode(true);
     });
 // ui routing code
 // .config(function ($routeProvider, $locationProvider) {
