@@ -44,3 +44,4 @@ testem.log
 Thumbs.db
 *lock.json
 *./idea
+*/dist/*
