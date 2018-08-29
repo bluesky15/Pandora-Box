@@ -45,3 +45,7 @@ Thumbs.db
 *lock.json
 *./idea
 */dist/*
+*/node_modules/*
+firebase-projects/fire-web/functions/node_modules/*
+*.out
+AndroidNativeDemo/.idea/misc.xml
